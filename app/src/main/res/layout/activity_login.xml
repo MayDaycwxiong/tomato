@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learning.tomato.LoginActivity">
+
+    <ImageView
+        android:id="@+id/default_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/default_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/LoginActivity_default_icon_layout_marginTop"
+        />
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/default_icon"
+       android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
+       android:orientation="vertical">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <TextView
+               android:id="@+id/fill_1"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+           <TextView
+               android:id="@+id/username"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:hint="@string/LoginActivity_username_hint"
+               android:textSize="@dimen/LoginActivity_text_size"
+               android:textColor="@color/LoginActivity_text_color"
+               android:layout_weight="3"/>
+           <TextView
+               android:id="@+id/fill_2"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/LoginActivity_control_layout_height"
+           android:orientation="horizontal"
+           android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop">
+           <TextView
+               android:id="@+id/fill_3"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+           <TextView
+               android:id="@+id/password"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:hint="@string/LoginActivity_password_hint"
+               android:textSize="@dimen/LoginActivity_text_size"
+               android:textColor="@color/LoginActivity_text_color"
+               android:layout_weight="3"/>
+           <TextView
+               android:id="@+id/fill_4"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/LoginActivity_control_layout_height"
+           android:orientation="horizontal"
+           android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop">
+           <TextView
+               android:id="@+id/fill_5"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+           <Button
+               android:id="@+id/login"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:text="@string/LoginActivity_login"
+               android:textSize="@dimen/LoginActivity_logintext_size"
+               android:textColor="@color/LoginActivity_text_color"
+               android:layout_weight="3"/>
+           <TextView
+               android:id="@+id/fill_6"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/LoginActivity_control_layout_height"
+           android:orientation="horizontal"
+           android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop">
+           <TextView
+               android:id="@+id/fill_7"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+
+           <RelativeLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="3">
+           <TextView
+               android:id="@+id/foget_password"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text="@string/LoginActivity_fogetpassword"
+               android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size"
+               android:textColor="@color/LoginActivity_text_color"
+               android:layout_alignParentLeft="true"
+               android:gravity="center"/>
+
+               <TextView
+                   android:id="@+id/register"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:layout_alignParentEnd="true"
+                   android:layout_alignParentTop="true"
+                   android:gravity="center"
+                   android:text="@string/LoginActivity_register"
+                   android:textColor="@color/LoginActivity_text_color"
+                   android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size" />
+           </RelativeLayout>
+
+           <TextView
+               android:id="@+id/fill_8"
+               android:layout_width="0dp"
+               android:layout_height="@dimen/LoginActivity_control_layout_height"
+               android:layout_weight="1"/>
+       </LinearLayout>
+
+   </LinearLayout>
+
+</RelativeLayout>

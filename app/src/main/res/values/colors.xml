@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="LoginActivity_bottom_icon_container">#525E84</color>
+    <color name="LoginActivity_text_color">#000000</color>
 </resources>
