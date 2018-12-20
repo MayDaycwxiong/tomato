@@ -31,13 +31,14 @@
                android:layout_width="0dp"
                android:layout_height="@dimen/LoginActivity_control_layout_height"
                android:layout_weight="1"/>
-           <TextView
+           <EditText
                android:id="@+id/username"
                android:layout_width="0dp"
                android:layout_height="@dimen/LoginActivity_control_layout_height"
                android:hint="@string/LoginActivity_username_hint"
                android:textSize="@dimen/LoginActivity_text_size"
                android:textColor="@color/LoginActivity_text_color"
+               android:background="@drawable/editsharp"
                android:layout_weight="3"/>
            <TextView
                android:id="@+id/fill_2"
@@ -56,13 +57,14 @@
                android:layout_width="0dp"
                android:layout_height="@dimen/LoginActivity_control_layout_height"
                android:layout_weight="1"/>
-           <TextView
+           <EditText
                android:id="@+id/password"
                android:layout_width="0dp"
                android:layout_height="@dimen/LoginActivity_control_layout_height"
                android:hint="@string/LoginActivity_password_hint"
                android:textSize="@dimen/LoginActivity_text_size"
                android:textColor="@color/LoginActivity_text_color"
+               android:background="@drawable/editsharp"
                android:layout_weight="3"/>
            <TextView
                android:id="@+id/fill_4"
