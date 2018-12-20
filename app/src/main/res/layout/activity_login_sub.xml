@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/default_icon"
+            android:layout_width="@dimen/LoginActivity_control_layout_height"
+            android:layout_height="@dimen/LoginActivity_control_layout_height"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/default_icon1" />
+        <TextView
+            android:layout_width="@dimen/LoginActivity_triangle_width"
+            android:layout_height="@dimen/LoginActivity_triangle_height"
+            android:layout_below="@+id/default_icon"
+            android:background="@drawable/loginactivity_triangle"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:background="@drawable/loginactivity_frame"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="9"
+                    android:background="@drawable/loginactivity_editsharp"
+                    android:hint="@string/LoginActivity_username_hint"
+                    android:textColor="@color/LoginActivity_text_color"
+                    android:textSize="@dimen/LoginActivity_hint_text_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="9"
+                    android:background="@drawable/loginactivity_editsharp"
+                    android:hint="@string/LoginActivity_password_hint"
+                    android:textColor="@color/LoginActivity_text_color"
+                    android:textSize="@dimen/LoginActivity_hint_text_size" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="9"
+                    android:text="@string/LoginActivity_login"
+                    android:textColor="@color/LoginActivity_text_color"
+                    android:textSize="@dimen/LoginActivity_logintext_size"
+                    android:background="@drawable/loginactivity_btn"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9">
+
+                    <TextView
+                        android:id="@+id/foget_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center"
+                        android:text="@string/LoginActivity_fogetpassword"
+                        android:textColor="@color/LoginActivity_text_color"
+                        android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size" />
+
+                    <TextView
+                        android:id="@+id/register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center"
+                        android:text="@string/LoginActivity_register"
+                        android:textColor="@color/LoginActivity_text_color"
+                        android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/LoginActivity_control_layout_height"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+</LinearLayout>
