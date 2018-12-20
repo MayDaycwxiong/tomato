@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:topLeftRadius="@dimen/LoginActivity_frame_corners"
+        android:topRightRadius="@dimen/LoginActivity_frame_corners"
+        android:bottomLeftRadius="@dimen/LoginActivity_frame_corners"
+        android:bottomRightRadius="@dimen/LoginActivity_frame_corners"/>
+
+    <gradient android:type="linear"
+        android:startColor="@color/LoginActivity_frameOrtriangle_color_start"
+        android:centerColor="@color/LoginActivity_frameOrtriangle_color_center"
+        android:endColor="@color/LoginActivity_frameOrtriangle_color_end"
+        android:angle="45"/>
+</shape>

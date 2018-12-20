@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <padding android:bottom="@dimen/LoginActivity_editsharp_padding"
+        android:left="@dimen/LoginActivity_editsharp_padding"
+        android:right="@dimen/LoginActivity_editsharp_padding"
+        android:top="@dimen/LoginActivity_editsharp_padding"/>
+
+    <corners android:radius="3dp"/>
+
+    <stroke android:width="5px"
+        android:color="@color/LoginActivity_EditText_stroke_color"/>
+
+    <solid android:color="@color/LoginActivity_EditText_solid_color"/>
+
+</shape>

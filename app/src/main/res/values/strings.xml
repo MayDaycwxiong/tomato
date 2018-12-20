@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">西虹市</string>
+    <string name="app_name">西虹柿</string>
     <string name="LoginActivity_username_hint">手机号/用户名</string>
     <string name="LoginActivity_password_hint">密码</string>
     <string name="LoginActivity_login">登录</string>
