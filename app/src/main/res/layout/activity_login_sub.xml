@@ -13,7 +13,7 @@
             android:layout_width="@dimen/LoginActivity_control_layout_height"
             android:layout_height="@dimen/LoginActivity_control_layout_height"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/default_icon1" />
+            android:src="@drawable/default_icon" />
         <TextView
             android:layout_width="@dimen/LoginActivity_triangle_width"
             android:layout_height="@dimen/LoginActivity_triangle_height"
