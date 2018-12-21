@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:topLeftRadius="@dimen/MainActivity_search_frame"
+        android:topRightRadius="@dimen/MainActivity_search_frame"
+        android:bottomLeftRadius="@dimen/MainActivity_search_frame"
+        android:bottomRightRadius="@dimen/MainActivity_search_frame">
+
+    </corners>
+    <solid android:color="@color/LoginActivity_frameOrtriangle_color_start"></solid>
+</shape>

@@ -7,8 +7,12 @@
     <dimen name="LoginActivity_editsharp_padding">5dp</dimen>
     <dimen name="LoginActivity_frame_corners">15dp</dimen>
     <dimen name="MainActivity_friendlist_chatingfrienditem">70dp</dimen>
+    <dimen name="MainActivity_search_frame">20dp</dimen>
+    <dimen name="MainActivity_search_frame_padding">5dp</dimen>
+    <dimen name="MainActivity_search_frame_paddingleft">15dp</dimen>
 
     <dimen name="LoginActivity_hint_text_size">24sp</dimen>
     <dimen name="LoginActivity_logintext_size">17sp</dimen>
     <dimen name="LoginActivity_forgetOrRegistertext_size">14sp</dimen>
+    <dimen name="MainActivity_search">15sp</dimen>
 </resources>

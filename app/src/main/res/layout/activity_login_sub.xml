@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -14,125 +14,76 @@
             android:layout_height="@dimen/LoginActivity_control_layout_height"
             android:layout_centerHorizontal="true"
             android:src="@drawable/default_icon" />
+
         <TextView
             android:layout_width="@dimen/LoginActivity_triangle_width"
             android:layout_height="@dimen/LoginActivity_triangle_height"
             android:layout_below="@+id/default_icon"
-            android:background="@drawable/loginactivity_triangle"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/loginactivity_triangle" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/loginactivity_frame"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
-            android:background="@drawable/loginactivity_frame"
+            android:layout_weight="49"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:background="@drawable/loginactivity_editsharp"
+                android:hint="@string/LoginActivity_username_hint"
+                android:textColor="@color/LoginActivity_text_color"
+                android:textSize="@dimen/LoginActivity_hint_text_size" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
 
-                <EditText
-                    android:id="@+id/username"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="9"
-                    android:background="@drawable/loginactivity_editsharp"
-                    android:hint="@string/LoginActivity_username_hint"
-                    android:textColor="@color/LoginActivity_text_color"
-                    android:textSize="@dimen/LoginActivity_hint_text_size" />
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:background="@drawable/loginactivity_editsharp"
+                android:hint="@string/LoginActivity_password_hint"
+                android:textColor="@color/LoginActivity_text_color"
+                android:textSize="@dimen/LoginActivity_hint_text_size" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:background="@drawable/loginactivity_btn"
+                android:text="@string/LoginActivity_login"
+                android:textColor="@color/LoginActivity_text_color"
+                android:textSize="@dimen/LoginActivity_logintext_size" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
                 android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
-
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="9"
-                    android:background="@drawable/loginactivity_editsharp"
-                    android:hint="@string/LoginActivity_password_hint"
-                    android:textColor="@color/LoginActivity_text_color"
-                    android:textSize="@dimen/LoginActivity_hint_text_size" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/LoginActivity_control_layout_height"
-                android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/login"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="9"
-                    android:text="@string/LoginActivity_login"
-                    android:textColor="@color/LoginActivity_text_color"
-                    android:textSize="@dimen/LoginActivity_logintext_size"
-                    android:background="@drawable/loginactivity_btn"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/LoginActivity_control_layout_height"
-                android:layout_marginTop="@dimen/LoginActivity_spacing_layout_marginTop"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -160,24 +111,16 @@
                         android:textColor="@color/LoginActivity_text_color"
                         android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size" />
                 </RelativeLayout>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/LoginActivity_control_layout_height"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
-
         </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
     </LinearLayout>
-
 </LinearLayout>

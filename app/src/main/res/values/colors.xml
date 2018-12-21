@@ -13,4 +13,5 @@
     <color name="LoginActivity_frameOrtriangle_color_start">#2D3A5D</color>
     <color name="LoginActivity_frameOrtriangle_color_center">#373E6A</color>
     <color name="LoginActivity_frameOrtriangle_color_end">#40537D</color>
+    <color name="MainActivity_search">#FFF0F5</color>
 </resources>
