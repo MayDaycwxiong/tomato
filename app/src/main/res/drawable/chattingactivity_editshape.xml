@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <padding
+        android:bottom="@dimen/ChattingActivity_subleft_messageitem_edit_padding"
+        android:left="@dimen/ChattingActivity_subleft_messageitem_edit_padding"
+        android:right="@dimen/ChattingActivity_subleft_messageitem_edit_padding"
+        android:top="@dimen/ChattingActivity_subleft_messageitem_edit_padding">
+
+    </padding>
+    <corners android:radius="3dp"></corners>
+    <stroke android:color="@color/ChattingActivity_edit_stroke"
+        android:width="3px"></stroke>
+    <solid android:color="@color/ChattingActivity_edit_solid"></solid>
+</shape>

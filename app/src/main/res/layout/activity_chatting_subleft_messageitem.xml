@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/ChattingActivity_subleft_messageitem_padding">
+
+    <LinearLayout
+        android:id="@+id/messageleft_chatting_subleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left">
+
+        <ImageView
+            android:id="@+id/friend_image"
+            android:layout_width="@dimen/ChattingActivity_subleft_messageitem_icon_height"
+            android:layout_height="@dimen/ChattingActivity_subleft_messageitem_icon_height"
+            android:layout_gravity="center"
+            android:src="@drawable/chattingactivity_emotion"/>
+
+        <TextView
+            android:id="@+id/chatting_messageleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/ChattingActivity_subleft_messageitem_padding"
+            android:background="@drawable/chattingactivity_message_left"
+            android:textColor="@color/ChattingActivity_message"
+            android:maxWidth="@dimen/ChattingActivity_subleft_messageitem_message_width"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/messageright_chatting_subleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+
+        <TextView
+            android:id="@+id/chatting_messageright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/ChattingActivity_subleft_messageitem_padding"
+            android:background="@drawable/chattingactivity_message_right"
+            android:textColor="@color/ChattingActivity_message"
+            android:maxWidth="@dimen/ChattingActivity_subleft_messageitem_message_width"/>
+
+        <ImageView
+            android:layout_width="@dimen/ChattingActivity_subleft_messageitem_icon_height"
+            android:layout_height="@dimen/ChattingActivity_subleft_messageitem_icon_height"
+            android:layout_gravity="center"
+            android:src="@drawable/chattingactivity_appendix" />
+
+    </LinearLayout>
+</LinearLayout>

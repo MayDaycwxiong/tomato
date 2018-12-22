@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
         };
 
         initChattingfriends();
-        RecyclerView recyclerView=findViewById(R.id.recycler_view);
+        RecyclerView recyclerView=findViewById(R.id.recycler_view_main_subright);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         ChattingfriendAdapter adapter=new ChattingfriendAdapter(chattingfriendList);
@@ -43,9 +43,9 @@ public class MainActivity extends BaseActivity {
         for(int i=0;i<5;i++){
             Chattingfriend cf1=new Chattingfriend(R.drawable.default_icon,"胡歌","15:28","什么时候结婚呀？");
             chattingfriendList.add(cf1);
-            Chattingfriend cf2=new Chattingfriend(R.drawable.chat_left,"六小龄童","15:29","我明年出演中美合作的西游记。");
+            Chattingfriend cf2=new Chattingfriend(R.drawable.mainactivity_exit,"六小龄童","15:29","我明年出演中美合作的西游记。");
             chattingfriendList.add(cf2);
-            Chattingfriend cf3=new Chattingfriend(R.drawable.chat_right,"周星驰","15:27","大话西游之无敌+");
+            Chattingfriend cf3=new Chattingfriend(R.drawable.mainactivity_setting,"周星驰","15:27","大话西游之无敌+");
             chattingfriendList.add(cf3);
             Chattingfriend cf4=new Chattingfriend(R.drawable.mainactivity_chat,"朱茵","15:18","曾经有一份真挚的爱情在我面前...");
             chattingfriendList.add(cf4);

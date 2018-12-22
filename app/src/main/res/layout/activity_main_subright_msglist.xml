@@ -25,8 +25,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="12"
-                android:background="@drawable/mainactivity_search"
-                android:drawableLeft="@drawable/search"
+                android:background="@drawable/mainactivity_editshape"
+                android:drawableLeft="@drawable/mainactivity_searchicon"
                 android:drawablePadding="@dimen/MainActivity_search_frame_padding"
                 android:paddingLeft="@dimen/MainActivity_search_frame_paddingleft"
                 android:gravity="center|left"
@@ -40,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="2"
-                android:src="@drawable/addfriend" />
+                android:src="@drawable/mainactivity_addfriend" />
         </LinearLayout>
 
         <TextView
@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler_view_main_subright"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9">

@@ -14,4 +14,7 @@
     <color name="LoginActivity_frameOrtriangle_color_center">#373E6A</color>
     <color name="LoginActivity_frameOrtriangle_color_end">#40537D</color>
     <color name="MainActivity_search">#FFF0F5</color>
+    <color name="ChattingActivity_message">#FFFFFF</color>
+    <color name="ChattingActivity_edit_stroke">#1199EF</color>
+    <color name="ChattingActivity_edit_solid">#40537D</color>
 </resources>

@@ -48,7 +48,7 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
-                android:background="@drawable/loginactivity_editsharp"
+                android:background="@drawable/loginactivity_editshape"
                 android:hint="@string/LoginActivity_username_hint"
                 android:textColor="@color/LoginActivity_text_color"
                 android:textSize="@dimen/LoginActivity_hint_text_size" />
@@ -61,7 +61,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
-                android:background="@drawable/loginactivity_editsharp"
+                android:background="@drawable/loginactivity_editshape"
                 android:hint="@string/LoginActivity_password_hint"
                 android:textColor="@color/LoginActivity_text_color"
                 android:textSize="@dimen/LoginActivity_hint_text_size" />

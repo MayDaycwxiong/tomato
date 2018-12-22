@@ -19,7 +19,8 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ChattingActivity"></activity>
+        <activity android:name=".ChattingActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>
