@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
-    public String uri="登录时获得的头像的地址";
+    public String myImage="登录时获得的头像的地址";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class LoginActivity extends BaseActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.actionStart(LoginActivity.this,uri);
+                MainActivity.actionStart(LoginActivity.this,myImage);
             }
         });
     }

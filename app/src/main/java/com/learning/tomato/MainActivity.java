@@ -31,9 +31,9 @@ public class MainActivity extends BaseActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    public static void actionStart(Context context,String uri){
+    public static void actionStart(Context context,String myImage){
         Intent intent=new Intent(context,MainActivity.class);
-        intent.putExtra("uri",uri);
+        intent.putExtra("myImage",myImage);
         context.startActivity(intent);
     }
     /**
