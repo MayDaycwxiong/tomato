@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--系统默认颜色-->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <!--LoginActivity 定义的颜色-->
     <color name="LoginActivity_bottom_icon_container">#525E84</color>
     <color name="LoginActivity_text_color">#000000</color>
     <color name="LoginActivity_EditText_stroke_color">#1199EF</color>
@@ -13,10 +15,15 @@
     <color name="LoginActivity_frameOrtriangle_color_start">#2D3A5D</color>
     <color name="LoginActivity_frameOrtriangle_color_center">#373E6A</color>
     <color name="LoginActivity_frameOrtriangle_color_end">#40537D</color>
+
+    <!--MainActivity 定义的颜色-->
     <color name="MainActivity_search">#FFF0F5</color>
+
+    <!--ChattingActivity 定义的颜色-->
     <color name="ChattingActivity_message">#FFFFFF</color>
     <color name="ChattingActivity_edit_stroke">#1199EF</color>
     <color name="ChattingActivity_edit_solid">#40537D</color>
     <color name="ChattingActivity_container_leftandcenter">#F7F7F7</color>
     <color name="ChattingActivity_container_right">#FFFFFF</color>
+    <color name="ChattingActivity_subright">#E6E6FA</color>
 </resources>

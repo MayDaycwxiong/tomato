@@ -1,4 +1,5 @@
 <resources>
+    <!--LoginActivity dp 定义-->
     <dimen name="LoginActivity_default_icon_layout_marginTop">120dp</dimen>
     <dimen name="LoginActivity_spacing_layout_marginTop">15dp</dimen>
     <dimen name="LoginActivity_control_layout_height">40dp</dimen>
@@ -6,18 +7,27 @@
     <dimen name="LoginActivity_triangle_height">15dp</dimen>
     <dimen name="LoginActivity_editsharp_padding">5dp</dimen>
     <dimen name="LoginActivity_frame_corners">15dp</dimen>
+
+    <!--MainActivity dp 定义-->
     <dimen name="MainActivity_friendlist_chatingfrienditem">70dp</dimen>
     <dimen name="MainActivity_search_frame">20dp</dimen>
     <dimen name="MainActivity_search_frame_padding">5dp</dimen>
     <dimen name="MainActivity_search_frame_paddingleft">15dp</dimen>
+
+    <!--ChattingActicity dp 定义-->
     <dimen name="ChattingActivity_subleft_messageitem_padding">10dp</dimen>
     <dimen name="ChattingActivity_subleft_messageitem_icon_height">40dp</dimen>
     <dimen name="ChattingActivity_subleft_messageitem_message_width">160dp</dimen>
     <dimen name="ChattingActivity_subleft_messageitem_edit_padding">5dp</dimen>
 
+    <!--LoginActivity sp 定义-->
     <dimen name="LoginActivity_hint_text_size">24sp</dimen>
     <dimen name="LoginActivity_logintext_size">17sp</dimen>
     <dimen name="LoginActivity_forgetOrRegistertext_size">14sp</dimen>
+
+    <!--MainActivity sp 定义-->
     <dimen name="MainActivity_search">15sp</dimen>
+
+    <!--ChattingActicity sp 定义-->
     <dimen name="ChattingActivity_edit_textsize">15sp</dimen>
 </resources>

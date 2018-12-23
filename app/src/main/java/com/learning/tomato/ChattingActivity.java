@@ -85,7 +85,30 @@ public class ChattingActivity extends AppCompatActivity {
                 mChatting_drawerLayout.openDrawer(GravityCompat.END);
             }
         });
+        /**
+         * 解决 侧滑菜单滑出时，侧滑菜单下层的 RecyclerView 能响应滑动问题。
+         */
+        mChatting_drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
 
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                drawerView.setClickable(true);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
     }
 
     /**
