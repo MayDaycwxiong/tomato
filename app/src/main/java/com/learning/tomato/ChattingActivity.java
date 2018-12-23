@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,6 +24,8 @@ public class ChattingActivity extends AppCompatActivity {
     private ChattingMessageAdapter chattingMessageAdapter;
     private TextView name;
     private TextView currentState;
+    private EditText inputContent;
+    private ImageView sendMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +48,26 @@ public class ChattingActivity extends AppCompatActivity {
         String friendName = intent.getStringExtra("friendName");
         int friendImage = intent.getIntExtra("friendImage", 0);
         Log.d(TAG, "onCreate: " + friendName + "\n" + friendImage + "\n" + mChattingMessageList.toString() + "\n");
+
         name=findViewById(R.id.name);
         name.setText(friendName);
         currentState=findViewById(R.id.state);
         currentState.setText(state);
+        inputContent=findViewById(R.id.inputcontent);
+        sendMessage=findViewById(R.id.sendmessage);
+        sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String message=inputContent.getText().toString();
+                if(!"".equals(message.trim())){
+                    ChattingMessage chattingMessage=new ChattingMessage(message,ChattingMessage.TYPE_SENT);
+                    mChattingMessageList.add(chattingMessage);
+                    chattingMessageAdapter.notifyItemInserted(mChattingMessageList.size()-1);
+                    messageRecyclerView.scrollToPosition(mChattingMessageList.size()-1);
+                    inputContent.setText("");
+                }
+            }
+        });
     }
 
     /**
