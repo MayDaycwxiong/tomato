@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
             chattingfriendList.add(cf1);
             Chattingfriend cf2=new Chattingfriend(R.drawable.mainactivity_exit,"六小龄童","15:29","我明年出演中美合作的西游记。");
             chattingfriendList.add(cf2);
-            Chattingfriend cf3=new Chattingfriend(R.drawable.mainactivity_setting,"周星驰","15:27","大话西游之无敌+");
+            Chattingfriend cf3=new Chattingfriend(R.drawable.mainactivity_setting,"周星驰","15:27","如果给我一次重新来过的机会，我会对那个女孩说三个字");
             chattingfriendList.add(cf3);
             Chattingfriend cf4=new Chattingfriend(R.drawable.mainactivity_chat,"朱茵","15:18","曾经有一份真挚的爱情在我面前...");
             chattingfriendList.add(cf4);

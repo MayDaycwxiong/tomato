@@ -17,4 +17,6 @@
     <color name="ChattingActivity_message">#FFFFFF</color>
     <color name="ChattingActivity_edit_stroke">#1199EF</color>
     <color name="ChattingActivity_edit_solid">#40537D</color>
+    <color name="ChattingActivity_container_leftandcenter">#F7F7F7</color>
+    <color name="ChattingActivity_container_right">#FFFFFF</color>
 </resources>
