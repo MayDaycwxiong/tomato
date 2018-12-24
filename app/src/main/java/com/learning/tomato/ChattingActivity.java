@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChattingActivity extends AppCompatActivity {
+public class ChattingActivity extends BaseActivity {
     public final static String state = "online";
     private static final String TAG = "ChattingActivity";
     private List<ChattingMessage> mChattingMessageList = new ArrayList<>();

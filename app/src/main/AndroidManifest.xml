@@ -19,8 +19,11 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ChattingActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".ChattingActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".SharingActivity" />
+        <activity android:name=".FriendListActivity"></activity>
     </application>
 
 </manifest>

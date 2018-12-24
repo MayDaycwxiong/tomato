@@ -11,6 +11,7 @@
         android:src="@drawable/default_icon" />
 
     <ImageView
+        android:id="@+id/mainactivity_msglist_image"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -23,6 +24,7 @@
         android:src="@drawable/mainactivity_friend" />
 
     <ImageView
+        android:id="@+id/mainactivity_sharing_image"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
