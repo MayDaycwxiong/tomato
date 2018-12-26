@@ -6,4 +6,12 @@
     <string name="LoginActivity_login">登录</string>
     <string name="LoginActivity_fogetpassword">忘记密码？</string>
     <string name="LoginActivity_register">新用户注册</string>
+    <!-- FriendsListActivity 好友分组-->
+    <string-array name="friendsGroup">
+        <item>我的好友</item>
+        <item>我的同学</item>
+        <item>我的同事</item>
+        <item>我的亲人</item>
+        <item></item>
+    </string-array>
 </resources>

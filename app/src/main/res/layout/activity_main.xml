@@ -31,6 +31,8 @@
         <include layout="@layout/activity_main_subright_msglist"></include>
 
         <include layout="@layout/activity_main_subright_sharingcenter"></include>
+
+        <include layout="@layout/activity_friends_list"></include>
     </LinearLayout>
 
     <TextView

@@ -23,7 +23,7 @@
             android:name=".ChattingActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".SharingActivity" />
-        <activity android:name=".FriendListActivity"></activity>
+        <activity android:name=".FriendsListActivity"></activity>
     </application>
 
 </manifest>

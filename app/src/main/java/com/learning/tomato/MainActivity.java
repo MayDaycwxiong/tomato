@@ -22,8 +22,6 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-    private List<Chattingfriend> chattingfriendList = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +30,19 @@ public class MainActivity extends BaseActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-
+        final View mainActivityView=getWindow().getDecorView();
         final LinearLayout subright_msglist = findViewById(R.id.mainactivity_subright_msglist);
         final CoordinatorLayout subright_sharingcenter = findViewById(R.id.mainactivity_subright_sharingcenter);
+        final LinearLayout friendslist=findViewById(R.id.activity_friends_list);
         ImageView mainactivity_msglist=findViewById(R.id.mainactivity_msglist_image);
         ImageView mainactivity_sharingcenter=findViewById(R.id.mainactivity_sharing_image);
+        ImageView mainactivity_friendslist=findViewById(R.id.mainactivity_friendslist_image);
         mainactivity_msglist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 subright_msglist.setVisibility(View.VISIBLE);
                 subright_sharingcenter.setVisibility(View.GONE);
+                friendslist.setVisibility(View.GONE);
                 init_subright_msglist();
             }
         });
@@ -50,7 +51,17 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view) {
                 subright_sharingcenter.setVisibility(View.VISIBLE);
                 subright_msglist.setVisibility(View.GONE);
+                friendslist.setVisibility(View.GONE);
                 init_subright_sharingcenter();
+            }
+        });
+        mainactivity_friendslist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                subright_sharingcenter.setVisibility(View.GONE);
+                subright_msglist.setVisibility(View.GONE);
+                friendslist.setVisibility(View.VISIBLE);
+                new FriendsListView(MainActivity.this,mainActivityView).onCreate();
             }
         });
     }
@@ -65,7 +76,8 @@ public class MainActivity extends BaseActivity {
      * 初始化 msglist
      */
     private void init_subright_msglist() {
-        initChattingfriends();
+        List<Chattingfriend> chattingfriendList = new ArrayList<>();
+        chattingfriendList=initChattingfriends(chattingfriendList);
         RecyclerView recyclerView = findViewById(R.id.recycler_view_main_subright);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -76,7 +88,7 @@ public class MainActivity extends BaseActivity {
     /**
      * 初始化 消息列表 好友聊天数据
      */
-    private void initChattingfriends() {
+    private List initChattingfriends(List chattingfriendList) {
         for (int i = 0; i < 5; i++) {
             Chattingfriend cf1 = new Chattingfriend(R.drawable.default_icon, "胡歌", "15:28", "什么时候结婚呀？");
             chattingfriendList.add(cf1);
@@ -89,6 +101,7 @@ public class MainActivity extends BaseActivity {
             Chattingfriend cf5 = new Chattingfriend(R.drawable.mainactivity_share, "刘亦菲", "15:33", "神仙姐姐你好呀！");
             chattingfriendList.add(cf5);
         }
+        return chattingfriendList;
     }
 
     /**
@@ -113,7 +126,7 @@ public class MainActivity extends BaseActivity {
         mainactivity_sharing_content.setText(sharing_content);
     }
 
-    private String generateSharingContent(String sharing_name) {
+    public String generateSharingContent(String sharing_name) {
         StringBuffer sharingContent = new StringBuffer();
         for (int i = 0; i < 500; i++) {
             sharingContent.append(sharing_name);
