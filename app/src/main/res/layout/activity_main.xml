@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.learning.tomato.MainActivity">
+    tools:context="com.learning.tomato.controller.MainActivity">
 
     <TextView
         android:layout_width="0dp"
@@ -28,11 +28,12 @@
         android:layout_height="match_parent"
         android:layout_weight="21">
 
-        <include layout="@layout/activity_main_subright_msglist"></include>
 
-        <include layout="@layout/activity_main_subright_sharingcenter"></include>
+        <include layout="@layout/activity_main_message_center"></include>
 
-        <include layout="@layout/activity_friends_list"></include>
+        <include layout="@layout/activity_main_sharing_world"></include>
+
+        <include layout="@layout/activity_main_friends_list"></include>
     </LinearLayout>
 
     <TextView

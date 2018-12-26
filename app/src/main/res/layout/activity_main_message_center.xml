@@ -4,7 +4,8 @@
     android:id="@+id/mainactivity_subright_msglist"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:visibility="gone">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                 android:textSize="@dimen/MainActivity_search"
                 android:textAllCaps="false"/>
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

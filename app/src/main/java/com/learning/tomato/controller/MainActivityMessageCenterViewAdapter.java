@@ -1,5 +1,6 @@
-package com.learning.tomato;
+package com.learning.tomato.controller;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,19 +8,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.learning.tomato.R;
+import com.learning.tomato.entity.Message;
+
 import java.util.List;
 
 /**
  * @author: cwxiong
  * @e-mail: 1451780593@qq.com
  * @Company: CSUFT
- * @Description: ChattingfriendAdapter 自定义适配器
+ * @Description: MainActivityMessageCenterViewAdapter 自定义适配器
  * @date 2018/12/21 14:33
  */
 
-public class ChattingfriendAdapter extends RecyclerView.Adapter<ChattingfriendAdapter.ViewHolder>{
+public class MainActivityMessageCenterViewAdapter extends RecyclerView.Adapter<MainActivityMessageCenterViewAdapter.ViewHolder>{
 
-    private List<Chattingfriend> mChattingfriendList;
+    private List<Message> mMessageList;
+    private int imageResource;
 
     static class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -39,20 +44,21 @@ public class ChattingfriendAdapter extends RecyclerView.Adapter<ChattingfriendAd
         }
     }
 
-    public ChattingfriendAdapter(List<Chattingfriend> mChattingfriendList) {
-        this.mChattingfriendList = mChattingfriendList;
+    public MainActivityMessageCenterViewAdapter(List<Message> mMessageList,int imageResource) {
+        this.mMessageList = mMessageList;
+        this.imageResource=imageResource;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_subright_friendlist_chattingfrienditem,parent,false);
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_message_center_messageitem,parent,false);
         final ViewHolder holder=new ViewHolder(view);
         holder.chattingfriendView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int position=holder.getAdapterPosition();
-                Chattingfriend chattingfriend=mChattingfriendList.get(position);
-                ChattingActivity.startActivity(view.getContext(),chattingfriend.getName(),chattingfriend.getImageId());
+                Message message = mMessageList.get(position);
+                ChattingActivity.startActivity(view.getContext(), message.getName(), message.getImageId(),imageResource);
             }
         });
         return holder;
@@ -60,16 +66,16 @@ public class ChattingfriendAdapter extends RecyclerView.Adapter<ChattingfriendAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Chattingfriend chattingfriend=mChattingfriendList.get(position);
-        holder.imageId.setImageResource(chattingfriend.getImageId());
-        holder.name.setText(chattingfriend.getName());
-        holder.time.setText(chattingfriend.getTime());
-        holder.message.setText(chattingfriend.getMessage());
+        Message message = mMessageList.get(position);
+        holder.imageId.setImageResource(message.getImageId());
+        holder.name.setText(message.getName());
+        holder.time.setText(message.getTime());
+        holder.message.setText(message.getMessage());
     }
 
     @Override
     public int getItemCount() {
-        return mChattingfriendList.size();
+        return mMessageList.size();
     }
 
 }

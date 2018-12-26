@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_main_friends_list_item_height"
+    android:orientation="horizontal"
+    android:background="@drawable/mainactivity_item_shape">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:src="@drawable/default_icon" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/activity_friends_list_titleName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="19"
+        android:gravity="center|left" />
+</LinearLayout>

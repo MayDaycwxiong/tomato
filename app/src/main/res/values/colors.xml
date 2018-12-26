@@ -18,6 +18,7 @@
 
     <!--MainActivity 定义的颜色-->
     <color name="MainActivity_search">#FFF0F5</color>
+    <color name="mainactivity_item_shape">#F7F7F7</color>
 
     <!--ChattingActivity 定义的颜色-->
     <color name="ChattingActivity_message">#FFFFFF</color>

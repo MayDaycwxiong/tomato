@@ -1,4 +1,4 @@
-package com.learning.tomato;
+package com.learning.tomato.entity;
 
 /**
  * @author: cwxiong
@@ -8,7 +8,7 @@ package com.learning.tomato;
  * @date 2018/12/21 13:45
  */
 
-public class Chattingfriend {
+public class Message {
     /**
      * 图片(头像)
      */
@@ -26,7 +26,7 @@ public class Chattingfriend {
      */
     private String message;
 
-    public Chattingfriend(int imageId, String name, String time, String message) {
+    public Message(int imageId, String name, String time, String message) {
         this.imageId = imageId;
         this.name = name;
         this.time = time;
@@ -67,7 +67,7 @@ public class Chattingfriend {
 
     @Override
     public String toString() {
-        return "Chattingfriend{" +
+        return "Message{" +
                 "imageId=" + imageId +
                 ", name='" + name + '\'' +
                 ", time='" + time + '\'' +

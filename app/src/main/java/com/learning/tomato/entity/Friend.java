@@ -1,4 +1,4 @@
-package com.learning.tomato;
+package com.learning.tomato.entity;
 
 import java.util.List;
 

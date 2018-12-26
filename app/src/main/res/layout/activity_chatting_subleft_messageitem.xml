@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/friend_image"
             android:layout_width="@dimen/ChattingActivity_subleft_messageitem_icon_height"
             android:layout_height="@dimen/ChattingActivity_subleft_messageitem_icon_height"
@@ -46,7 +46,8 @@
             android:textColor="@color/ChattingActivity_message"
             android:maxWidth="@dimen/ChattingActivity_subleft_messageitem_message_width"/>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/my_image"
             android:layout_width="@dimen/ChattingActivity_subleft_messageitem_icon_height"
             android:layout_height="@dimen/ChattingActivity_subleft_messageitem_icon_height"
             android:layout_gravity="center"

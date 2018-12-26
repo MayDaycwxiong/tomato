@@ -1,8 +1,9 @@
-package com.learning.tomato;
+package com.learning.tomato.until;
 
 import android.app.Activity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -14,6 +15,7 @@ import java.util.List;
  */
 
 public class ActivityCollector {
+    private static final String TAG = "ActivityCollector";
     public static List<Activity> activities=new ArrayList<>();
 
     public static void addActivity(Activity activity){

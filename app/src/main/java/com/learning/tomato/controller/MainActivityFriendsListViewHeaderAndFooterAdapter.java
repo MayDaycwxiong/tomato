@@ -1,4 +1,4 @@
-package com.learning.tomato;
+package com.learning.tomato.controller;
 
 import android.content.Context;
 import android.support.v4.util.SparseArrayCompat;
@@ -12,6 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.learning.tomato.R;
+import com.learning.tomato.entity.Friend;
+import com.learning.tomato.entity.FriendsGroup;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,11 +26,11 @@ import java.util.List;
  * @author: cwxiong
  * @e-mail: 1451780593@qq.com
  * @Company: CSUFT
- * @Description: TODO
+ * @Description: 好友分组适配器
  * @date 2018/12/25 23:04
  */
 
-public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_FRIEND = 1;
     private List<FriendsGroup> friendsGroups;
@@ -35,9 +40,8 @@ public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<Re
     private HashMap<Integer, List<Friend>> mFriendsMap;
     private SparseBooleanArray mBooleanMap;
 
-    public HeaderAndFooterWrapperOfFriendsList(Context context, List<FriendsGroup> friendsGroups) {
+    public MainActivityFriendsListViewHeaderAndFooterAdapter(Context context, List<FriendsGroup> friendsGroups) {
         this.friendsGroups = friendsGroups;
-        this.context = context;
         mHeaderViews = new SparseArrayCompat<>();
         mHeaderIndex = new ArrayList<>();
         mFriendsMap = new HashMap<>();
@@ -82,10 +86,13 @@ public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<Re
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == TYPE_HEADER) {
-            return new HeaderHolder(LayoutInflater.from(context).inflate(R.layout.activity_friends_list_titleitem, parent, false));
+        if(context==null){
+            context=parent.getContext();
         }
-        return new FriendHolder(LayoutInflater.from(context).inflate(R.layout.activity_friends_list_frienditem, parent, false));
+        if (viewType == TYPE_HEADER) {
+            return new HeaderHolder(LayoutInflater.from(context).inflate(R.layout.activity_main_friends_list_titleitem, parent, false));
+        }
+        return new FriendHolder(LayoutInflater.from(context).inflate(R.layout.activity_main_friends_list_frienditem, parent, false));
     }
 
     @Override
@@ -112,6 +119,7 @@ public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<Re
 //            ((FriendHolder) holder).friendIcon.setImageResource(friend.get(friendIndex).getFriendHeadIcon());
             ((FriendHolder) holder).friendName.setText(friend.get(friendIndex).getFriendName());
             ((FriendHolder) holder).motto.setText(friend.get(friendIndex).getMotto());
+            Glide.with(context).load(friend.get(friendIndex).getFriendHeadIcon()).into(((FriendHolder) holder).friendIcon);
         }
     }
 
@@ -137,7 +145,7 @@ public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<Re
         }
     }
 
-    @Override
+  /*  @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         if (layoutManager instanceof GridLayoutManager) {
@@ -155,9 +163,9 @@ public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<Re
                 }
             });
         }
-    }
+    }*/
 
-    @Override
+  /*  @Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
         int position = holder.getLayoutPosition();
         if (isHeaderView(position)) {
@@ -167,7 +175,7 @@ public class HeaderAndFooterWrapperOfFriendsList extends RecyclerView.Adapter<Re
                 lp.setFullSpan(true);
             }
         }
-    }
+    }*/
 
     @Override
     public int getItemCount() {

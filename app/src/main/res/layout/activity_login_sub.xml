@@ -8,10 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/default_icon"
-            android:layout_width="@dimen/LoginActivity_control_layout_height"
-            android:layout_height="@dimen/LoginActivity_control_layout_height"
+            android:layout_width="@dimen/LoginActivity_image_height"
+            android:layout_height="@dimen/LoginActivity_image_height"
             android:layout_centerHorizontal="true"
             android:src="@drawable/default_icon" />
 

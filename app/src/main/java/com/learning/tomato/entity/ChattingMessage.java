@@ -1,4 +1,4 @@
-package com.learning.tomato;
+package com.learning.tomato.entity;
 
 /**
  * @author: cwxiong
@@ -15,12 +15,21 @@ public class ChattingMessage {
     public static final int TYPE_RECEIVED = 1;
 
     private String content;
-
+    private int image;
     private int type;
 
-    public ChattingMessage(String content, int type) {
+    public ChattingMessage(String content, int friendImage, int type) {
         this.content = content;
+        this.image = friendImage;
         this.type = type;
+    }
+
+    public int getFriendImage() {
+        return image;
+    }
+
+    public void setFriendImage(int image) {
+        this.image = image;
     }
 
     public String getContent() {

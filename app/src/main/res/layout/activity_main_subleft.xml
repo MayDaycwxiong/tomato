@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/activity_subleft_myHeadIcon"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:src="@drawable/default_icon" />
+        android:layout_weight="1" />
 
     <ImageView
         android:id="@+id/mainactivity_msglist_image"
