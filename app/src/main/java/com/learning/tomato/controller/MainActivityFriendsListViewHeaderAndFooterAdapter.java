@@ -116,7 +116,6 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
             List<Friend> friend = mFriendsMap.get(titleId);
             int titleOfPosition = mHeaderIndex.get(titleId);
             int friendIndex = position - titleOfPosition - 1;
-//            ((FriendHolder) holder).friendIcon.setImageResource(friend.get(friendIndex).getFriendHeadIcon());
             ((FriendHolder) holder).friendName.setText(friend.get(friendIndex).getFriendName());
             ((FriendHolder) holder).motto.setText(friend.get(friendIndex).getMotto());
             Glide.with(context).load(friend.get(friendIndex).getFriendHeadIcon()).into(((FriendHolder) holder).friendIcon);
