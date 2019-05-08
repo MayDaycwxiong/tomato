@@ -1,5 +1,6 @@
 package com.learning.tomato.controller;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.learning.tomato.until.ActivityCollector;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
 
@@ -39,6 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "onCreate: "+ imageResource);
         ImageView myHeadIcon=findViewById(R.id.activity_subleft_myHeadIcon);
         Glide.with(this).load(imageResource).into(myHeadIcon);
+        myHeadIcon.setOnClickListener(this);
 
         baseActivity = this;
         mainActivityView = getWindow().getDecorView();
@@ -52,6 +55,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mainactivity_sharingcenter.setOnClickListener(this);
         ImageView mainactivity_friendslist = findViewById(R.id.mainactivity_friendslist_image);
         mainactivity_friendslist.setOnClickListener(this);
+
+        ImageView mainactivity_setting=findViewById(R.id.mainactivity_setting);
+        mainactivity_setting.setOnClickListener(this);
+
+        ImageView mainactivity_exit=findViewById(R.id.mainactivity_exit);
+        mainactivity_exit.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +76,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.activity_subleft_myHeadIcon:
+                break;
             case R.id.mainactivity_msglist_image:
                 subright_msglist.setVisibility(View.VISIBLE);
                 subright_sharingcenter.setVisibility(View.GONE);
@@ -84,6 +95,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 subright_msglist.setVisibility(View.GONE);
                 friendslist.setVisibility(View.GONE);
                 new MainActivitySharingWorldViewController(MainActivity.this, mainActivityView).onCreate(baseActivity);
+                break;
+            case R.id.mainactivity_setting:
+                break;
+            case R.id.mainactivity_exit:
+                ActivityCollector.finishAll();
+                android.os.Process.killProcess(android.os.Process.myPid());
+                break;
         }
     }
 

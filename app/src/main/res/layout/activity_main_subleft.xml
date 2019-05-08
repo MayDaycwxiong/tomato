@@ -32,6 +32,7 @@
         android:src="@drawable/mainactivity_share" />
 
     <ImageView
+        android:id="@+id/mainactivity_setting"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -43,6 +44,7 @@
         android:layout_weight="3" />
 
     <ImageView
+        android:id="@+id/mainactivity_exit"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"

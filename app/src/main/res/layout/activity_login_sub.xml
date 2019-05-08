@@ -64,6 +64,7 @@
                 android:background="@drawable/loginactivity_editshape"
                 android:hint="@string/LoginActivity_password_hint"
                 android:textColor="@color/LoginActivity_text_color"
+                android:inputType="textPassword"
                 android:textSize="@dimen/LoginActivity_hint_text_size" />
 
             <TextView
