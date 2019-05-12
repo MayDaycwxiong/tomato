@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.learning.tomato.R;
-import com.learning.tomato.entity.Message;
+import com.learning.tomato.dao.Message;
 
 import java.util.ArrayList;
 import java.util.List;

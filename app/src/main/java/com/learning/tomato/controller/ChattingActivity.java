@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
-import com.learning.tomato.entity.ChattingMessage;
+import com.learning.tomato.dao.ChattingMessage;
 
 import java.util.ArrayList;
 import java.util.List;

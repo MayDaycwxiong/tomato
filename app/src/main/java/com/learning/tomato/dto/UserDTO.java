@@ -1,4 +1,4 @@
-package com.learning.tomato.entity.Service;
+package com.learning.tomato.dto;
 
 
 import java.io.Serializable;

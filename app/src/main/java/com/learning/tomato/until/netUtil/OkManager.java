@@ -73,7 +73,7 @@ public class OkManager {
      * @param map
      * @param callBack
      */
-    public void asynJsonObjectByRequest(String url, Map<String, String> map, final Func1 callBack){
+    public void asynJsonObjectByRequest(String url, final Map<String, String> map, final Func1 callBack){
         FormBody.Builder responseBodyBuilder=new FormBody.Builder();
         if(map!=null&&!map.isEmpty()){
             for(Map.Entry<String,String> entry:map.entrySet()){
@@ -86,6 +86,10 @@ public class OkManager {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.d(TAG,"okhttp 网络异常"+e.getMessage());
+                String userid=map.get("userid");
+                map.clear();
+                map.put("userid",userid);
+                Log.e(TAG,"当前只有userid="+userid);
                 e.printStackTrace();
             }
             @Override

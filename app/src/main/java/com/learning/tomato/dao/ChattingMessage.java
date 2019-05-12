@@ -1,4 +1,4 @@
-package com.learning.tomato.entity;
+package com.learning.tomato.dao;
 
 /**
  * @author: cwxiong

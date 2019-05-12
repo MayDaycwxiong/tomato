@@ -47,10 +47,11 @@ public class MainActivitySharingWorldViewController {
         ImageView mainactivity_sharing_image = view.findViewById(R.id.mainactivity_sharing_backroundimage);
         TextView mainactivity_sharing_content = view.findViewById(R.id.mainactivity_sharing_content);
         baseActivity.setSupportActionBar(toolbar);
+        //  系统默认的返回箭头去除
         ActionBar actionBar = baseActivity.getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//        }
         collapsingToolbarLayout.setTitle(sharing_name);
         Glide.with(context).load(R.drawable.chattingactivity_emotion).into(mainactivity_sharing_image);
         String sharing_content = generateSharingContent(sharing_name);

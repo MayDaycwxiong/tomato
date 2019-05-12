@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/activity_setting"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/baseinfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="用户信息"
+            android:gravity="center|left"
+            android:drawableEnd="@drawable/userinfoactivity_detail"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/clean"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="清空缓存"
+            android:gravity="center|left" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/exit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="退出"
+            android:gravity="center|left" />
+    </LinearLayout>
+
+</LinearLayout>

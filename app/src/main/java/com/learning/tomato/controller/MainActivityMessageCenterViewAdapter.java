@@ -1,6 +1,5 @@
 package com.learning.tomato.controller;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.learning.tomato.R;
-import com.learning.tomato.entity.Message;
+import com.learning.tomato.dao.Message;
 
 import java.util.List;
 

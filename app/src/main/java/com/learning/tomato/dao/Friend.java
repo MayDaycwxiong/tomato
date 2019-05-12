@@ -1,6 +1,4 @@
-package com.learning.tomato.entity;
-
-import java.util.List;
+package com.learning.tomato.dao;
 
 /**
  * @author: cwxiong

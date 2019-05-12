@@ -8,9 +8,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.learning.tomato.entity.Service.UserDTO;
+import com.learning.tomato.dto.UserDTO;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
+import com.learning.tomato.until.MyStaticResource;
 import com.learning.tomato.until.netUtil.OkManager;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
     private OkManager okManager=null;
-    private String url="http://192.168.137.1:8080/websys_web_war_exploded/users/login.pub";
+    private String url= MyStaticResource.LOGINURL;
     Map<String,String> map=null;
 
 //    private Handler handler=new Handler(){
@@ -72,6 +73,7 @@ public class LoginActivity extends BaseActivity {
                 if(!userNameText.getText().toString().equals("")&&!passwordText.getText().toString().equals("")){
                     Log.e(TAG,"账号："+userNameText.getText().toString());
                     Log.e(TAG,"密码："+passwordText.getText().toString());
+                    Log.e(TAG,"请求url:"+url);
                     map=new HashMap<>();
                     map.put("userid",userNameText.getText().toString());
                     map.put("userpassword",passwordText.getText().toString());
@@ -82,12 +84,12 @@ public class LoginActivity extends BaseActivity {
                             UserDTO userDTO= JSON.parseObject(result,UserDTO.class);
                             Log.e(TAG,"响应消息:"+userDTO);
                             Log.e(TAG,"响应标识:"+userDTO.getFlag());
-                            resultMapping(userDTO.getFlag());
+                            resultMapping(userDTO.getFlag(),userDTO.getUserPO().getUserid());
                         }
                     });
                 }else{
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
-                    MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon);
+                    MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon,"15243643896");
                 }
             }
         });
@@ -96,11 +98,12 @@ public class LoginActivity extends BaseActivity {
     /**
      * 返回结果映射处理
      * @param flag
+     * @param userid
      */
-    private void resultMapping(String flag) {
+    private void resultMapping(String flag, String userid) {
         switch (flag){
             case "0":
-                MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon);
+                MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon,userid);
                 break;
             case "1":
                 Toast.makeText(LoginActivity.this, "账号或密码不正确", Toast.LENGTH_SHORT).show();
@@ -109,5 +112,12 @@ public class LoginActivity extends BaseActivity {
                 Toast.makeText(LoginActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        map.clear();
+        map=null;
     }
 }

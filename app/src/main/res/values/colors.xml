@@ -27,4 +27,7 @@
     <color name="ChattingActivity_container_leftandcenter">#F7F7F7</color>
     <color name="ChattingActivity_container_right">#FFFFFF</color>
     <color name="ChattingActivity_subright">#E6E6FA</color>
+
+    <color name="UserBaseInfoActivity_subTop">#1199EF</color>
+    <color name="UserBaseInfoActivity_subTop_btn">#FFFFFF</color>
 </resources>

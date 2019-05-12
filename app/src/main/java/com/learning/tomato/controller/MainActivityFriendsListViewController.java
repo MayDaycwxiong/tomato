@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.learning.tomato.R;
-import com.learning.tomato.entity.Friend;
-import com.learning.tomato.entity.FriendsGroup;
+import com.learning.tomato.dao.Friend;
+import com.learning.tomato.dao.FriendsGroup;
 
 import java.util.ArrayList;
 import java.util.List;

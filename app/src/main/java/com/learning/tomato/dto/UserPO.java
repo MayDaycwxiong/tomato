@@ -1,4 +1,4 @@
-package com.learning.tomato.entity.Service;
+package com.learning.tomato.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -42,6 +42,15 @@ public class UserPO implements Serializable {
      * userBirthday
      */
     private Date userbirthday;
+    private String birthday;
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
 
     /**
      * 用户年龄

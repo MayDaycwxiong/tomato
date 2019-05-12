@@ -16,6 +16,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -33,4 +38,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.51'
+    compile 'id.zelory:compressor:2.1.0'
+//    compile group: 'io.netty', name: 'netty-all', version: '4.1.24.Final'
+    implementation files('libs/fastdfs_client_v1.20.jar')
 }

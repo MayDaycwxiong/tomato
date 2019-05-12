@@ -2,9 +2,7 @@ package com.learning.tomato.controller;
 
 import android.content.Context;
 import android.support.v4.util.SparseArrayCompat;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.learning.tomato.R;
-import com.learning.tomato.entity.Friend;
-import com.learning.tomato.entity.FriendsGroup;
+import com.learning.tomato.dao.Friend;
+import com.learning.tomato.dao.FriendsGroup;
 
 import java.util.ArrayList;
 import java.util.HashMap;

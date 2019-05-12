@@ -3,41 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.learning.tomato.controller.MainActivity">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
-
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="4">
-
-        <include layout="@layout/activity_main_subleft"></include>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="23">
-
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="26">
 
         <include layout="@layout/activity_main_message_center"></include>
 
         <include layout="@layout/activity_main_sharing_world"></include>
 
         <include layout="@layout/activity_main_friends_list"></include>
+
+        <include layout="@layout/activity_main_setting"></include>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <include layout="@layout/activity_main_subleft"></include>
+    </LinearLayout>
+
 </LinearLayout>

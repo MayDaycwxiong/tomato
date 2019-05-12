@@ -2,56 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/activity_subleft_myHeadIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--android:id="@+id/activity_subleft_myHeadIcon"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1" />-->
 
     <ImageView
         android:id="@+id/mainactivity_msglist_image"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:src="@drawable/mainactivity_chat" />
 
     <ImageView
         android:id="@+id/mainactivity_friendslist_image"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:src="@drawable/mainactivity_friend" />
 
     <ImageView
         android:id="@+id/mainactivity_sharing_image"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:src="@drawable/mainactivity_share" />
 
     <ImageView
-        android:id="@+id/mainactivity_setting"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:id="@+id/mainactivity_setting_image"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:src="@drawable/mainactivity_setting" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="3" />
+    <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="3" />-->
 
-    <ImageView
-        android:id="@+id/mainactivity_exit"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:src="@drawable/mainactivity_exit" />
+    <!--<ImageView-->
+        <!--android:id="@+id/mainactivity_exit"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:src="@drawable/mainactivity_exit" />-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1" />-->
 </LinearLayout>
