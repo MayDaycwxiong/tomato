@@ -45,10 +45,13 @@ public class MyStaticResource {
     public static final String UPDATEBASEINFOINTERFACEURL="/users/updateBaseInfo.pub";
     // 接口信息，获取用户所有信息接口url
     public static final String SELECTALLUSERINFOINTERFACEURL="/users/selectAllUserInfo.pub";
+    // 接口信息，申请账号与注册账号接口url
+    public static final String REGISTERINTERFACEURL="/users/register.pub";
 
     public static final String LOGINURL=REQUESTPREFIX+LOGININTERFACEURL;
     public static final String UPDATEBASEINFOURL=REQUESTPREFIX+UPDATEBASEINFOINTERFACEURL;
     public static final String SELECTALLUSERINFOURL= REQUESTPREFIX+SELECTALLUSERINFOINTERFACEURL;
+    public static final String REGISTERURL=REQUESTPREFIX+REGISTERINTERFACEURL;
 
     /**
      * fastDFS客户端统一变量定义

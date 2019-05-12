@@ -36,7 +36,8 @@
         <activity
             android:name=".controller.ChattingActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".controller.UserBaseInfoActivity"></activity>
+        <activity android:name=".controller.UserBaseInfoActivity" />
+        <activity android:name=".controller.RegisterActivity"></activity>
     </application>
 
 </manifest>

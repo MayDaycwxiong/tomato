@@ -76,7 +76,6 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
         if (actionBar != null) {
             actionBar.hide();
         }
-        createDialog();
         editHeadIcon = findViewById(R.id.btn_userInfo);
         editHeadIcon.setOnClickListener(this);
         myHeadIcon = findViewById(R.id.myHeadIcon);
@@ -91,7 +90,7 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
         bindViewWithId.put(R.id.userSex,"usersex"+"&性别");
         userBirthday=findViewById(R.id.userBirthday);
         userBirthday.setOnClickListener(this);
-        bindViewWithId.put(R.id.userBirthday,"birthday"+"&出生日期");
+        bindViewWithId.put(R.id.userBirthday,"userbirthday"+"&出生日期");
 
         userAge=findViewById(R.id.userAge);
         userAge.setOnClickListener(this);
@@ -103,7 +102,7 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
 
         userAdd=findViewById(R.id.userAdd);
         userAdd.setOnClickListener(this);
-        bindViewWithId.put(R.id.userAdd,"useraddr"+"&地址");
+        bindViewWithId.put(R.id.userAdd,"useradd"+"&地址");
 
         userMotto=findViewById(R.id.userMotto);
         userMotto.setOnClickListener(this);
@@ -198,6 +197,7 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_userInfo:
+                createDialog();
                 dialog.show();
                 break;
             case R.id.photograph:
@@ -244,7 +244,6 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
             case R.id.userMotto:
             case R.id.image7:
                 editDialog(R.id.userMotto);
-                break;
         }
     }
     private void editDialog(final int id){

@@ -86,10 +86,10 @@ public class OkManager {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.d(TAG,"okhttp 网络异常"+e.getMessage());
-                String userid=map.get("userid");
-                map.clear();
-                map.put("userid",userid);
-                Log.e(TAG,"当前只有userid="+userid);
+//                String userid=map.get("userid");
+//                map.clear();
+//                map.put("userid",userid);
+//                Log.e(TAG,"当前只有userid="+userid);
                 e.printStackTrace();
             }
             @Override

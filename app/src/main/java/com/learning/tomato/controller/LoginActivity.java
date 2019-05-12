@@ -1,18 +1,24 @@
 package com.learning.tomato.controller;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.learning.tomato.dto.UserDTO;
+import com.learning.tomato.until.ActivityCollector;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
 import com.learning.tomato.until.MyStaticResource;
 import com.learning.tomato.until.netUtil.OkManager;
+import com.learning.tomato.until.paramUtil.StringUtil;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,9 +45,17 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         Log.d(TAG,"onCreate execute");
         Button loginButton=findViewById(R.id.login);
-        final EditText userNameText=findViewById(R.id.username);
+        TextView register=findViewById(R.id.register);
+        final EditText userIdText=findViewById(R.id.login_userid);
         final EditText passwordText=findViewById(R.id.password);
-        
+
+        Intent intent=getIntent();
+        if(StringUtil.isNotEmpty(intent.getStringExtra("userid"))){
+            userIdText.setText(intent.getStringExtra("userid"));
+        }
+        if(StringUtil.isNotEmpty(intent.getStringExtra("userpassword"))){
+            passwordText.setText(intent.getStringExtra("userpassword"));
+        }
         okManager=OkManager.getInstance();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,12 +84,12 @@ public class LoginActivity extends BaseActivity {
 //                        Log.e(TAG,"响应消息:"+userPO.getUserid());
 //                    }
 //                });
-                if(!userNameText.getText().toString().equals("")&&!passwordText.getText().toString().equals("")){
-                    Log.e(TAG,"账号："+userNameText.getText().toString());
+                if(!userIdText.getText().toString().equals("")&&!passwordText.getText().toString().equals("")){
+                    Log.e(TAG,"账号："+userIdText.getText().toString());
                     Log.e(TAG,"密码："+passwordText.getText().toString());
                     Log.e(TAG,"请求url:"+url);
                     map=new HashMap<>();
-                    map.put("userid",userNameText.getText().toString());
+                    map.put("userid",userIdText.getText().toString());
                     map.put("userpassword",passwordText.getText().toString());
                     okManager.asynJsonObjectByRequest(url, map, new OkManager.Func1() {
                         @Override
@@ -93,6 +107,14 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG,"点击register");
+                RegisterActivity.actionStart(LoginActivity.this);
+            }
+        });
     }
 
     /**
@@ -103,6 +125,7 @@ public class LoginActivity extends BaseActivity {
     private void resultMapping(String flag, String userid) {
         switch (flag){
             case "0":
+                ActivityCollector.finishAll();
                 MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon,userid);
                 break;
             case "1":
@@ -119,5 +142,12 @@ public class LoginActivity extends BaseActivity {
         super.onDestroy();
         map.clear();
         map=null;
+    }
+
+    public static void actionStart(Context context,String userid,String userpassword){
+        Intent intent=new Intent(context,LoginActivity.class);
+        intent.putExtra("userid",userid);
+        intent.putExtra("userpassword",userpassword);
+        context.startActivity(intent);
     }
 }

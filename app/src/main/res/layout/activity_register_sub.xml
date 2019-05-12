@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/default_icon"
+            android:id="@+id/register_icon"
             android:layout_width="@dimen/LoginActivity_image_height"
             android:layout_height="@dimen/LoginActivity_image_height"
             android:layout_centerHorizontal="true"
@@ -18,7 +19,7 @@
         <TextView
             android:layout_width="@dimen/LoginActivity_triangle_width"
             android:layout_height="@dimen/LoginActivity_triangle_height"
-            android:layout_below="@+id/default_icon"
+            android:layout_below="@+id/register_icon"
             android:layout_centerHorizontal="true"
             android:background="@drawable/loginactivity_triangle" />
     </RelativeLayout>
@@ -45,20 +46,20 @@
                 android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
 
             <EditText
-                android:id="@+id/login_userid"
+                android:id="@+id/register_userid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
                 android:background="@drawable/loginactivity_editshape"
-                android:hint="@string/LoginActivity_username_hint"
                 android:textColor="@color/LoginActivity_text_color"
-                android:textSize="@dimen/LoginActivity_hint_text_size" />
+                android:textSize="@dimen/LoginActivity_hint_text_size"
+                android:enabled="false"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/register_password"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
                 android:background="@drawable/loginactivity_editshape"
@@ -71,12 +72,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
 
+            <EditText
+                android:id="@+id/register_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_control_layout_height"
+                android:background="@drawable/loginactivity_editshape"
+                android:hint="@string/RegisterActivity_confirmpassword"
+                android:textColor="@color/LoginActivity_text_color"
+                android:inputType="textPassword"
+                android:textSize="@dimen/LoginActivity_hint_text_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/LoginActivity_spacing_layout_marginTop" />
+
             <Button
-                android:id="@+id/login"
+                android:id="@+id/register_register"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
                 android:background="@drawable/loginactivity_btn"
-                android:text="@string/LoginActivity_login"
+                android:text="@string/RegisterActivity_register"
                 android:textColor="@color/LoginActivity_text_color"
                 android:textSize="@dimen/LoginActivity_logintext_size" />
 
@@ -91,26 +106,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="9">
 
-                    <TextView
-                        android:id="@+id/foget_password"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:gravity="center"
-                        android:text="@string/LoginActivity_fogetpassword"
-                        android:textColor="@color/LoginActivity_text_color"
-                        android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size" />
-
-                    <TextView
-                        android:id="@+id/register"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
-                        android:gravity="center"
-                        android:text="@string/LoginActivity_register"
-                        android:textColor="@color/LoginActivity_text_color"
-                        android:textSize="@dimen/LoginActivity_forgetOrRegistertext_size" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -124,4 +119,5 @@
             android:layout_height="match_parent"
             android:layout_weight="3" />
     </LinearLayout>
+
 </LinearLayout>
