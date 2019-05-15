@@ -16,6 +16,7 @@ import com.learning.tomato.until.ActivityCollector;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
 import com.learning.tomato.until.MyStaticResource;
+import com.learning.tomato.until.NetttyClient.Simple;
 import com.learning.tomato.until.netUtil.OkManager;
 import com.learning.tomato.until.paramUtil.StringUtil;
 
@@ -101,9 +102,11 @@ public class LoginActivity extends BaseActivity {
                             resultMapping(userDTO.getFlag(),userDTO.getUserPO().getUserid());
                         }
                     });
+
                 }else{
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
                     MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon,"15243643896");
+                    new Simple().start();
                 }
             }
         });
