@@ -15,20 +15,20 @@ public class ChattingMessage {
     public static final int TYPE_RECEIVED = 1;
 
     private String content;
-    private int image;
+    private String image;
     private int type;
 
-    public ChattingMessage(String content, int friendImage, int type) {
+    public ChattingMessage(String content, String friendImage, int type) {
         this.content = content;
         this.image = friendImage;
         this.type = type;
     }
 
-    public int getFriendImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setFriendImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

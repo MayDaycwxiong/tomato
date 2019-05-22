@@ -11,13 +11,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.learning.tomato.dto.UserDTO;
+import com.learning.tomato.dto.friends.IptablesPO;
+import com.learning.tomato.dto.friends.ServerAddDTO;
+import com.learning.tomato.dto.friends.ServerAddPO;
+import com.learning.tomato.dto.users.UserDTO;
+import com.learning.tomato.dto.users.UserPO;
+import com.learning.tomato.service.NetttyClient.Simple;
+import com.learning.tomato.service.NettyServer.SimpleServer;
 import com.learning.tomato.until.ActivityCollector;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
 import com.learning.tomato.until.MyStaticResource;
-import com.learning.tomato.until.NetttyClient.Simple;
-import com.learning.tomato.until.netUtil.OkManager;
+import com.learning.tomato.service.NetttyClient.ConnectIdleStateTrigger;
+import com.learning.tomato.until.ip.IpAddress;
+import com.learning.tomato.service.netUtil.OkManager;
+import com.learning.tomato.until.paramUtil.ObjectUtil;
 import com.learning.tomato.until.paramUtil.StringUtil;
 
 import java.util.HashMap;
@@ -29,16 +37,6 @@ public class LoginActivity extends BaseActivity {
     private OkManager okManager=null;
     private String url= MyStaticResource.LOGINURL;
     Map<String,String> map=null;
-
-//    private Handler handler=new Handler(){
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//            switch (msg.what){
-//                case 1:
-//            }
-//        }
-//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,14 +97,28 @@ public class LoginActivity extends BaseActivity {
                             UserDTO userDTO= JSON.parseObject(result,UserDTO.class);
                             Log.e(TAG,"响应消息:"+userDTO);
                             Log.e(TAG,"响应标识:"+userDTO.getFlag());
-                            resultMapping(userDTO.getFlag(),userDTO.getUserPO().getUserid());
+                            resultMapping(userDTO.getFlag(),userDTO.getUserPO());
                         }
                     });
 
                 }else{
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
-                    MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon,"15243643896");
-                    new Simple().start();
+//                    MainActivity.actionStart(LoginActivity.this);
+//                    MyStaticResource.MTHREADPOOL.execute(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            IpAddress ipAddress=new IpAddress();
+//                            String ip=ipAddress.getLocalhostIp(LoginActivity.this);
+//                            if(StringUtil.isNotEmpty(ip)){
+//                                Log.e(TAG,"当前ip为"+ip);
+//                                IptablesPO iptablesPO=new IptablesPO();
+//                                iptablesPO.setClientselfip(ip);
+//                                iptablesPO.setUserid("15243643896");
+//                                ConnectIdleStateTrigger.iptablesPO=iptablesPO;
+//                                ChattingActivity.clientSelfIp=ip;
+//                            }
+//                        }
+//                    });
                 }
             }
         });
@@ -123,13 +135,23 @@ public class LoginActivity extends BaseActivity {
     /**
      * 返回结果映射处理
      * @param flag
-     * @param userid
+     * @param userPO
      */
-    private void resultMapping(String flag, String userid) {
+    private void resultMapping(String flag, UserPO userPO) {
         switch (flag){
             case "0":
+                MyStaticResource.USERID=userPO.getUserid();
+                MyStaticResource.USERICON=userPO.getUsericon();
+                MyStaticResource.USERNAME=userPO.getUsername();
+                Log.e(TAG,"静态资源");
+                Log.e(TAG,"userid="+MyStaticResource.USERID+"usericon="+MyStaticResource.USERICON+"uername="+MyStaticResource.USERNAME);
+                // 向服务器注册自己的IP地址时使用
+                getLocalhostIp(userPO.getUserid());
+                // 获取服务器IP地址与端口，通讯使用
+                getServerAddr();
+//                SimpleServer.getSimpleServerInstance(MyStaticResource.ANDROIDSERVERPORT);
                 ActivityCollector.finishAll();
-                MainActivity.actionStart(LoginActivity.this,R.drawable.default_icon,userid);
+                MainActivity.actionStart(LoginActivity.this);
                 break;
             case "1":
                 Toast.makeText(LoginActivity.this, "账号或密码不正确", Toast.LENGTH_SHORT).show();
@@ -140,11 +162,82 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 得到服务器IP地址以及端口信息
+     */
+    private void getServerAddr() {
+        MyStaticResource.MTHREADPOOL.execute(new Runnable() {
+            @Override
+            public void run() {
+                okManager.asynJsonObjectByRequest(MyStaticResource.SERVERINFO, null, new OkManager.Func1() {
+                    @Override
+                    public void onResponse(String result) {
+                        Log.e(TAG,"获取服务器地址："+result);
+                        ServerAddDTO serverAddDTO = JSON.parseObject(result, ServerAddDTO.class);
+                        Log.e(TAG, "响应消息:" + serverAddDTO);
+                        Log.e(TAG, "响应标识:" + serverAddDTO.getFlage());
+                        resultMapping(serverAddDTO);
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     * 响应消息映射
+     * @param serverAddDTO
+     */
+    private void resultMapping(ServerAddDTO serverAddDTO) {
+        if(serverAddDTO.getFlage().equals("0")){
+            ServerAddPO serverAddPO=serverAddDTO.getServerAddPO();
+            if(ObjectUtil.isNotNull(serverAddPO)){
+                Simple.serverIP=StringUtil.isNotEmpty(serverAddPO.getServerip())?serverAddPO.getServerip():MyStaticResource.EMPTY;
+                if(StringUtil.isNotEmpty(Simple.serverIP)){
+                    ChattingActivity.serverIp=Simple.serverIP;
+                    Log.e(TAG,"ChattingActivity 中的ServerIP="+ChattingActivity.serverIp);
+                }
+                Simple.port=ObjectUtil.isNotNull(serverAddPO.getServerport())?serverAddPO.getServerport():0;
+                Log.e(TAG,"获取的服务器IP="+Simple.serverIP+",服务器的端口port="+Simple.port);
+                new Simple().start();
+            }
+        }else if(serverAddDTO.getFlage().equals("1")){
+            Log.e(TAG,"当前没有可用的服务器");
+        }else{
+            Log.e(TAG,"未知返回消息");
+        }
+
+    }
+
+    /**
+     * 得到手机端IP地址
+     * @param userid
+     */
+    private void getLocalhostIp(final String userid) {
+        MyStaticResource.MTHREADPOOL.execute(new Runnable() {
+            @Override
+            public void run() {
+                IpAddress ipAddress=new IpAddress();
+                String ip=ipAddress.getLocalhostIp(LoginActivity.this);
+                if(StringUtil.isNotEmpty(ip)){
+                    Log.e(TAG,"当前ip为"+ip);
+                    IptablesPO iptablesPO=new IptablesPO();
+                    iptablesPO.setClientselfip(ip);
+                    iptablesPO.setUserid(userid);
+                    ConnectIdleStateTrigger.iptablesPO=iptablesPO;
+                    ChattingActivity.clientSelfIp=ip;
+                    Log.e(TAG,"ChattingActivity 中的ClientSelfIP="+ChattingActivity.clientSelfIp);
+                }
+            }
+        });
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        map.clear();
-        map=null;
+        if(map!=null){
+            map.clear();
+            map=null;
+        }
     }
 
     public static void actionStart(Context context,String userid,String userpassword){

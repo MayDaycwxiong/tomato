@@ -72,7 +72,7 @@ public class ChattingMessageAdapter extends RecyclerView.Adapter<ChattingMessage
             holder.messageLeftLayout.setVisibility(View.VISIBLE);
             holder.messageRightLayout.setVisibility(View.GONE);
             holder.messageLeft.setText(chattingMessage.getContent());
-            Glide.with(mContext).load(chattingMessage.getFriendImage()).into(holder.friendImage);
+            Glide.with(mContext).load(chattingMessage.getImage()).into(holder.friendImage);
         }else if(chattingMessage.getType()==ChattingMessage.TYPE_SENT){
             /**
              * 发送消息
@@ -80,7 +80,7 @@ public class ChattingMessageAdapter extends RecyclerView.Adapter<ChattingMessage
             holder.messageLeftLayout.setVisibility(View.GONE);
             holder.messageRightLayout.setVisibility(View.VISIBLE);
             holder.messageRight.setText(chattingMessage.getContent());
-            Glide.with(mContext).load(chattingMessage.getFriendImage()).into(holder.myImage);
+            Glide.with(mContext).load(chattingMessage.getImage()).into(holder.myImage);
         }
     }
 

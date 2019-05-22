@@ -92,7 +92,7 @@
                 android:layout_height="@dimen/LoginActivity_control_layout_height"
                 android:background="@drawable/loginactivity_btn"
                 android:text="@string/RegisterActivity_register"
-                android:textColor="@color/LoginActivity_text_color"
+                android:textColor="@color/LoginActivity_btnText_color"
                 android:textSize="@dimen/LoginActivity_logintext_size" />
 
             <LinearLayout

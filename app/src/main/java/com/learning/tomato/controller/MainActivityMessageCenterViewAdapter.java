@@ -8,9 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.learning.tomato.R;
-import com.learning.tomato.dao.Message;
+import com.learning.tomato.dao.ReceiveMessage;
 
 import java.util.List;
+
 
 /**
  * @author: cwxiong
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class MainActivityMessageCenterViewAdapter extends RecyclerView.Adapter<MainActivityMessageCenterViewAdapter.ViewHolder>{
 
-    private List<Message> mMessageList;
+    private List<ReceiveMessage> mMessageList;
     private int imageResource;
 
     static class ViewHolder extends RecyclerView.ViewHolder{
@@ -43,7 +44,7 @@ public class MainActivityMessageCenterViewAdapter extends RecyclerView.Adapter<M
         }
     }
 
-    public MainActivityMessageCenterViewAdapter(List<Message> mMessageList,int imageResource) {
+    public MainActivityMessageCenterViewAdapter(List<ReceiveMessage> mMessageList,int imageResource) {
         this.mMessageList = mMessageList;
         this.imageResource=imageResource;
     }
@@ -56,8 +57,8 @@ public class MainActivityMessageCenterViewAdapter extends RecyclerView.Adapter<M
             @Override
             public void onClick(View view) {
                 int position=holder.getAdapterPosition();
-                Message message = mMessageList.get(position);
-                ChattingActivity.startActivity(view.getContext(), message.getName(), message.getImageId(),imageResource);
+                ReceiveMessage message = mMessageList.get(position);
+//                ChattingActivity.startActivity(view.getContext(),message.getUsreid(), message.getName(), message.getImageId(),imageResource);
             }
         });
         return holder;
@@ -65,8 +66,8 @@ public class MainActivityMessageCenterViewAdapter extends RecyclerView.Adapter<M
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Message message = mMessageList.get(position);
-        holder.imageId.setImageResource(message.getImageId());
+        ReceiveMessage message = mMessageList.get(position);
+//        holder.imageId.setImageResource(message.getImageId());
         holder.name.setText(message.getName());
         holder.time.setText(message.getTime());
         holder.message.setText(message.getMessage());

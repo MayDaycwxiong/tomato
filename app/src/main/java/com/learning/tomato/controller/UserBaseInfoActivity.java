@@ -24,13 +24,13 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.learning.tomato.R;
-import com.learning.tomato.dto.UserDTO;
-import com.learning.tomato.dto.UserPO;
+import com.learning.tomato.dto.users.UserDTO;
+import com.learning.tomato.dto.users.UserPO;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.until.paramUtil.DateTranslate;
 import com.learning.tomato.until.paramUtil.ObjectUtil;
-import com.learning.tomato.until.fastdfs.FastDFSClient;
-import com.learning.tomato.until.netUtil.OkManager;
+import com.learning.tomato.service.fastdfs.FastDFSClient;
+import com.learning.tomato.service.netUtil.OkManager;
 import com.learning.tomato.until.picture.GetPath;
 import com.learning.tomato.until.MyStaticResource;
 
@@ -90,7 +90,7 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
         bindViewWithId.put(R.id.userSex,"usersex"+"&性别");
         userBirthday=findViewById(R.id.userBirthday);
         userBirthday.setOnClickListener(this);
-        bindViewWithId.put(R.id.userBirthday,"userbirthday"+"&出生日期");
+        bindViewWithId.put(R.id.userBirthday,"birthday"+"&出生日期");
 
         userAge=findViewById(R.id.userAge);
         userAge.setOnClickListener(this);
@@ -102,7 +102,7 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
 
         userAdd=findViewById(R.id.userAdd);
         userAdd.setOnClickListener(this);
-        bindViewWithId.put(R.id.userAdd,"useradd"+"&地址");
+        bindViewWithId.put(R.id.userAdd,"useraddr"+"&地址");
 
         userMotto=findViewById(R.id.userMotto);
         userMotto.setOnClickListener(this);
@@ -384,6 +384,7 @@ public class UserBaseInfoActivity extends BaseActivity implements View.OnClickLi
             case "0":
                 if(imageView!=null){
                     Log.e(TAG,"图片地址为："+info);
+                    MyStaticResource.USERICON=info;
                     Glide.with(this).load(info).into(imageView);
                 }else if(textView!=null){
                     Log.e(TAG,"更新内容为："+info);

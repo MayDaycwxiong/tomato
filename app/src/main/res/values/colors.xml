@@ -7,7 +7,8 @@
 
     <!--LoginActivity 定义的颜色-->
     <color name="LoginActivity_bottom_icon_container">#525E84</color>
-    <color name="LoginActivity_text_color">#000000</color>
+    <color name="LoginActivity_btnText_color">#000000</color>
+    <color name="LoginActivity_text_color">#FFFFFF</color>
     <color name="LoginActivity_EditText_stroke_color">#1199EF</color>
     <color name="LoginActivity_EditText_solid_color">#576788</color>
     <color name="LoginActivity_btn_color">#4169E1</color>

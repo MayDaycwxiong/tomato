@@ -13,12 +13,20 @@
         android:layout_weight="1">
         <TextView
             android:id="@+id/baseinfo"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="11"
             android:layout_height="match_parent"
             android:text="用户信息"
-            android:gravity="center|left"
-            android:drawableEnd="@drawable/userinfoactivity_detail"/>
+            android:gravity="center|left" />
+        <ImageView
+            android:id="@+id/activity_setting_image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_userbaseinfo_detail"
+            android:src="@drawable/userinfoactivity_detail" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -40,6 +48,11 @@
             android:layout_height="match_parent"
             android:text="退出"
             android:gravity="center|left" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
     </LinearLayout>
 
 </LinearLayout>

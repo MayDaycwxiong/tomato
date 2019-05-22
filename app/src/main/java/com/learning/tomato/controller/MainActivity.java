@@ -6,19 +6,25 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.learning.tomato.service.NettyServer.SimpleServer;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.R;
+import com.learning.tomato.service.NetttyClient.Simple;
+import com.learning.tomato.until.MyStaticResource;
+
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     private int imageResource;
-    private String userid;
+    public String userid;
     private LinearLayout friendslist;
     private LinearLayout subright_msglist;
     private CoordinatorLayout subright_sharingcenter;
@@ -37,8 +43,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         Intent intent=getIntent();
         imageResource=intent.getIntExtra("myHeadIcon",0);
-        userid=intent.getStringExtra("userid");
-        Log.d(TAG, "从上一个Activity携带的参数:myHeadIcon="+ imageResource+" userid="+userid);
+        userid=MyStaticResource.USERID;
+        Log.d(TAG, "myHeadIcon="+ imageResource+" userid="+userid);
 //        ImageView myHeadIcon=findViewById(R.id.activity_subleft_myHeadIcon);
 //        Glide.with(this).load(imageResource).into(myHeadIcon);
 //        myHeadIcon.setOnClickListener(this);
@@ -81,6 +87,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 subright_sharingcenter.setVisibility(View.GONE);
                 friendslist.setVisibility(View.GONE);
                 setting.setVisibility(View.GONE);
+//                new Simple().start();
+//                SimpleServer.getSimpleServerInstance(MyStaticResource.ANDROIDSERVERPORT);
                 new MainActivityMessageCenterViewController(MainActivity.this, mainActivityView,imageResource).onCreate();
                 break;
             case R.id.mainactivity_friendslist_image:
@@ -88,6 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 subright_sharingcenter.setVisibility(View.GONE);
                 subright_msglist.setVisibility(View.GONE);
                 setting.setVisibility(View.GONE);
+//                new Simple().start();
                 new MainActivityFriendsListViewController(MainActivity.this, mainActivityView).onCreate();
                 break;
             case R.id.mainactivity_sharing_image:
@@ -107,10 +116,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    public static void actionStart(Context context, int myImage,String userid) {
+    public static void actionStart(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("myHeadIcon", myImage);
-        intent.putExtra("userid",userid);
         context.startActivity(intent);
     }
 }

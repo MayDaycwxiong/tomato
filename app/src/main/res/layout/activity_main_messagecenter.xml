@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:background="@drawable/mainactivity_editshape"
+            android:drawableLeft="@drawable/mainactivity_searchicon"
+            android:drawablePadding="@dimen/MainActivity_search_frame_padding"
+            android:paddingLeft="@dimen/MainActivity_search_frame_paddingleft"
+            android:gravity="center|left"
+            android:hint="Search"
+            android:textColorHint="@color/MainActivity_search"
+            android:textSize="@dimen/MainActivity_search"
+            android:textAllCaps="false"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:src="@drawable/mainactivity_addfriend" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

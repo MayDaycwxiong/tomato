@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.learning.tomato.R;
-import com.learning.tomato.dao.Message;
+import com.learning.tomato.dao.ReceiveMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 public class MainActivityMessageCenterViewController {
     private Context context;
     private View view;
-    private int imageResource;
+    public static int imageResource;
 
     public MainActivityMessageCenterViewController(Context context, View view,int imageResource) {
         this.context = context;
@@ -37,7 +37,7 @@ public class MainActivityMessageCenterViewController {
      * 初始化 msglist
      */
     private void init_subright_msglist() {
-        List<Message> messageList = new ArrayList<>();
+        List<ReceiveMessage> messageList = new ArrayList<>();
         messageList = initChattingfriends(messageList);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_main_subright);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
@@ -51,16 +51,16 @@ public class MainActivityMessageCenterViewController {
      */
     private List initChattingfriends(List chattingfriendList) {
         for (int i = 0; i < 5; i++) {
-            Message cf1 = new Message(R.drawable.default_icon, "胡歌", "15:28", "什么时候结婚呀？");
-            chattingfriendList.add(cf1);
-            Message cf2 = new Message(R.drawable.mainactivity_exit, "六小龄童", "15:29", "我明年出演中美合作的西游记。");
-            chattingfriendList.add(cf2);
-            Message cf3 = new Message(R.drawable.mainactivity_setting, "周星驰", "15:27", "如果给我一次重新来过的机会，我会对那个女孩说三个字");
-            chattingfriendList.add(cf3);
-            Message cf4 = new Message(R.drawable.mainactivity_chat, "朱茵", "15:18", "曾经有一份真挚的爱情在我面前...");
-            chattingfriendList.add(cf4);
-            Message cf5 = new Message(R.drawable.mainactivity_share, "刘亦菲", "15:33", "神仙姐姐你好呀！");
-            chattingfriendList.add(cf5);
+//            ReceiveMessage cf1 = new ReceiveMessage("15243643896",R.drawable.default_icon, "胡歌", "15:28", "什么时候结婚呀？");
+//            chattingfriendList.add(cf1);
+//            ReceiveMessage cf2 = new ReceiveMessage("15243643896",R.drawable.mainactivity_exit, "六小龄童", "15:29", "我明年出演中美合作的西游记。");
+//            chattingfriendList.add(cf2);
+//            ReceiveMessage cf3 = new ReceiveMessage("15243643896",R.drawable.mainactivity_setting, "周星驰", "15:27", "如果给我一次重新来过的机会，我会对那个女孩说三个字");
+//            chattingfriendList.add(cf3);
+//            ReceiveMessage cf4 = new ReceiveMessage("15243643896",R.drawable.mainactivity_chat, "朱茵", "15:18", "曾经有一份真挚的爱情在我面前...");
+//            chattingfriendList.add(cf4);
+//            ReceiveMessage cf5 = new ReceiveMessage("15243643896",R.drawable.mainactivity_share, "刘亦菲", "15:33", "神仙姐姐你好呀！");
+//            chattingfriendList.add(cf5);
         }
         return chattingfriendList;
     }

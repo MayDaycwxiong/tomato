@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.learning.tomato.R;
-import com.learning.tomato.dto.UserDTO;
-import com.learning.tomato.dto.UserPO;
+import com.learning.tomato.dto.friends.UserGroupDTO;
+import com.learning.tomato.dto.users.UserDTO;
+import com.learning.tomato.dto.users.UserPO;
 import com.learning.tomato.until.ActivityCollector;
 import com.learning.tomato.until.BaseActivity;
 import com.learning.tomato.until.MyStaticResource;
-import com.learning.tomato.until.netUtil.OkManager;
+import com.learning.tomato.service.netUtil.OkManager;
 import com.learning.tomato.until.paramUtil.ObjectUtil;
 import com.learning.tomato.until.paramUtil.StringUtil;
 
@@ -32,7 +33,7 @@ public class RegisterActivity extends BaseActivity {
     private String url= MyStaticResource.REGISTERURL;
     private TextView userid;
     private TextView password;
-    private Map<String,String> map;
+    private Map<String,String> map=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +101,47 @@ public class RegisterActivity extends BaseActivity {
                 userid.setText(userPO.getUserid());
             }else if(ObjectUtil.isNull(userPO)){
                 Toast.makeText(RegisterActivity.this,"账号注册成功",Toast.LENGTH_SHORT).show();
+                // 注册成功或初始化好友分组，有默认分组
+                initFriendGroup(this.userid.getText().toString());
                 ActivityCollector.finishAll();
                 LoginActivity.actionStart(RegisterActivity.this,userid.getText().toString(),password.getText().toString());
             }
         }else{
             Log.e(TAG,"申请账号异常");
+        }
+    }
+
+    /**
+     * 请求服务器分配默认分组信息
+     * @param userid
+     */
+    private void initFriendGroup(String userid) {
+        if(!map.isEmpty()){
+            map.clear();
+            Log.e(TAG,"清除map,当前map大小为"+map.size());
+        }
+        map.put("userid",userid);
+        okManager.asynJsonObjectByRequest(MyStaticResource.INITFRIENDGROUP, map, new OkManager.Func1() {
+            @Override
+            public void onResponse(String result) {
+                Log.e(TAG,result);
+                UserGroupDTO userGroupDTO=JSON.parseObject(result,UserGroupDTO.class);
+                Log.e(TAG,"响应消息:"+userGroupDTO);
+                Log.e(TAG,"响应标识:"+userGroupDTO.getFlag());
+                resultMapping(userGroupDTO);
+            }
+        });
+    }
+
+    /**
+     * 好友分组初始化结果映射
+     * @param userGroupDTO
+     */
+    private void resultMapping(UserGroupDTO userGroupDTO) {
+        if(userGroupDTO.getFlag().equals("0")){
+            Log.e(TAG,"好友分组初始化成功");
+        }else if(userGroupDTO.getFlag().equals("1")){
+            Log.e(TAG,"好友分组初始化失败");
         }
     }
 

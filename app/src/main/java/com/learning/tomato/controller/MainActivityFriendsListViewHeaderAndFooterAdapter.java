@@ -3,6 +3,7 @@ package com.learning.tomato.controller;
 import android.content.Context;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,9 @@ import com.bumptech.glide.Glide;
 import com.learning.tomato.R;
 import com.learning.tomato.dao.Friend;
 import com.learning.tomato.dao.FriendsGroup;
+import com.learning.tomato.dao.ReceiveMessage;
+import com.learning.tomato.dto.friends.FriendInfo;
+import com.learning.tomato.dto.friends.UserGroupInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,18 +32,21 @@ import java.util.List;
  * @date 2018/12/25 23:04
  */
 
-public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    private static final String TAG = "FriendsListHeaderFooter";
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_FRIEND = 1;
-    private List<FriendsGroup> friendsGroups;
+//    private List<FriendsGroup> friendsGroups;
+    private List<UserGroupInfo> userGroupInfos;
     private Context context;
     private SparseArrayCompat<View> mHeaderViews;
     private List<Integer> mHeaderIndex;
-    private HashMap<Integer, List<Friend>> mFriendsMap;
+    private HashMap<Integer, List<FriendInfo>> mFriendsMap;
     private SparseBooleanArray mBooleanMap;
 
-    public MainActivityFriendsListViewHeaderAndFooterAdapter(Context context, List<FriendsGroup> friendsGroups) {
-        this.friendsGroups = friendsGroups;
+    public MainActivityFriendsListViewHeaderAndFooterAdapter(Context context, List<UserGroupInfo> userGroupInfos) {
+//        this.friendsGroups = friendsGroups;
+        this.userGroupInfos=userGroupInfos;
         mHeaderViews = new SparseArrayCompat<>();
         mHeaderIndex = new ArrayList<>();
         mFriendsMap = new HashMap<>();
@@ -65,12 +72,14 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
         ImageView friendIcon;
         TextView friendName;
         TextView motto;
+        View friendItem;
 
         public FriendHolder(View itemView) {
             super(itemView);
             friendIcon = itemView.findViewById(R.id.activity_friends_list_friendIcon);
             friendName = itemView.findViewById(R.id.activity_friends_list_friendName);
             motto = itemView.findViewById(R.id.activity_friends_list_motto);
+            friendItem=itemView;
         }
     }
 
@@ -90,14 +99,30 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
         if (viewType == TYPE_HEADER) {
             return new HeaderHolder(LayoutInflater.from(context).inflate(R.layout.activity_main_friends_list_titleitem, parent, false));
         }
-        return new FriendHolder(LayoutInflater.from(context).inflate(R.layout.activity_main_friends_list_frienditem, parent, false));
+        View view=LayoutInflater.from(context).inflate(R.layout.activity_main_friends_list_frienditem, parent, false);
+        final FriendHolder friendHolder=new FriendHolder(view);
+        friendHolder.friendItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position=friendHolder.getAdapterPosition();
+                int titleId = getFriendsBottomTitle(position);
+                List<FriendInfo> friend = mFriendsMap.get(titleId);
+                int titleOfPosition = mHeaderIndex.get(titleId);
+                int friendIndex = position - titleOfPosition - 1;
+                FriendInfo friendInfo=friend.get(friendIndex);
+                ChattingActivity.friendListStartActivity(view.getContext(),friendInfo.getFriendId(),friendInfo.getUserPO().getUsername(),friendInfo.getUserPO().getUsericon());
+                Log.e(TAG,"当前位置是:"+position+" 真实的好友位置是："+friendIndex+"当前好友"+friend.get(friendIndex).toString());
+//                friendHolder.friendItem
+            }
+        });
+        return friendHolder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (isHeaderView(position)) {
             ((HeaderHolder) holder).titleName.setOnClickListener(null);
-            ((HeaderHolder) holder).titleName.setText(friendsGroups.get(getHeadRealCount(position)).getTitleName());
+            ((HeaderHolder) holder).titleName.setText(userGroupInfos.get(getHeadRealCount(position)).getUserGroupPO().getUsergroupname());
             ((HeaderHolder) holder).titleName.setTag(getHeadRealCount(position));
             ((HeaderHolder) holder).titleName.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,21 +136,22 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
             return;
         } else {
             int titleId = getFriendsBottomTitle(position);
-            List<Friend> friend = mFriendsMap.get(titleId);
+            List<FriendInfo> friend = mFriendsMap.get(titleId);
             int titleOfPosition = mHeaderIndex.get(titleId);
             int friendIndex = position - titleOfPosition - 1;
-            ((FriendHolder) holder).friendName.setText(friend.get(friendIndex).getFriendName());
-            ((FriendHolder) holder).motto.setText(friend.get(friendIndex).getMotto());
-            Glide.with(context).load(friend.get(friendIndex).getFriendHeadIcon()).into(((FriendHolder) holder).friendIcon);
+            ((FriendHolder) holder).friendName.setText(friend.get(friendIndex).getUserPO().getUsername());
+            ((FriendHolder) holder).motto.setText(friend.get(friendIndex).getUserPO().getUsermotto());
+            Glide.with(context).load(friend.get(friendIndex).getUserPO().getUsericon()).into(((FriendHolder) holder).friendIcon);
         }
     }
+
 
     private int getHeadRealCount(int position) {
         return mHeaderIndex.indexOf(new Integer(position));
     }
 
     private int getFriendsBottomTitle(int position) {
-        for (int i = 0; i < friendsGroups.size(); i++) {
+        for (int i = 0; i < userGroupInfos.size(); i++) {
             if (mHeaderIndex.get(i) > position) {
                 return i - 1;
             }
@@ -180,7 +206,10 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
     }
 
     private int getHeadersCount() {
-        return friendsGroups.size();
+        if(userGroupInfos==null){
+            return 0;
+        }
+        return userGroupInfos.size();
     }
 
     private int getFriendsCount() {
@@ -188,7 +217,7 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
         mFriendsMap.clear();
         int itemCount = 0;
         int friendsSize = 0;
-        for (int i = 0; i < friendsGroups.size(); i++) {
+        for (int i = 0; i < userGroupInfos.size(); i++) {
             if (i != 0) {
                 itemCount++;
             }
@@ -197,14 +226,16 @@ public class MainActivityFriendsListViewHeaderAndFooterAdapter extends RecyclerV
             itemCount += friendsBottomTitle;
             friendsSize += friendsBottomTitle;
             if (friendsBottomTitle > 0) {
-                mFriendsMap.put(i, friendsGroups.get(i).getFriendsList());
+//                mFriendsMap.put(i, friendsGroups.get(i).getFriendsList());
+                mFriendsMap.put(i,userGroupInfos.get(i).getFriendInfoList());
             }
         }
         return friendsSize;
     }
 
     private int getFriendsSize(int i) {
-        int friendsSizeBottomTitle = friendsGroups.get(i).getFriendsList().size();
+//        int friendsSizeBottomTitle = friendsGroups.get(i).getFriendsList().size();
+        int friendsSizeBottomTitle=userGroupInfos.get(i).getFriendInfoList().size();
         if (!mBooleanMap.get(i)) {
             friendsSizeBottomTitle = 0;
         }

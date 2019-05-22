@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.learning.tomato.controller.SharingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:background="@color/LoginActivity_EditText_stroke_color"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_marginLeft="15dp"
+            style="@style/tab_menu_text">
+            <ImageView
+                android:id="@+id/sharing_activity_back"
+                android:src="@drawable/sharingactivity_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+        <TextView
+            android:text="发布"
+            android:textSize="15dp"
+            android:textColor="@android:color/white"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/sharing_activity_commit"
+            android:text="提交"
+            android:textSize="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/loginactivity_btn"
+            android:layout_width="50dp"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <EditText
+            android:padding="5dp"
+            android:id="@+id/sharing_activity_content"
+            android:hint="说点什么吧..."
+            android:gravity="top"
+            android:maxLines="10"
+            android:textSize="13dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/sharing_text"/>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/sharing_activity_content"
+            android:text="0/200"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>
